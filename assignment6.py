@@ -80,7 +80,7 @@ y = df['Species']
 
 buildmodel(X , y)
 
-# Checking model score after removing outliers
+# Checking model score before  removing outliers
 fig, axes = plt.subplots(2,2)
 sns.boxplot(data = df, x ='SepalLength', ax=axes[0,0])
 sns.boxplot(data = df, x ='SepalWidth', ax=axes[0,1])
@@ -91,7 +91,19 @@ plt.show()
 
 df = removeoutliers(df, 'SepalWidth')
 
+# Checking model score after removing outliers
+fig, axes = plt.subplots(2,2)
+sns.boxplot(data = df, x ='SepalLength', ax=axes[0,0])
+sns.boxplot(data = df, x ='SepalWidth', ax=axes[0,1])
+sns.boxplot(data = df, x ='PetalLength', ax=axes[1,0])
+sns.boxplot(data = df, x ='PetalWidth', ax=axes[1,1])
+plt.show()
+
+print("After removal of the outliers ")
+
 X = df.drop(columns=['Species' , 'Id'])
 y = df['Species']
 
+
+buildmodel(X , y)
 
