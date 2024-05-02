@@ -72,24 +72,24 @@ def detectOutliers(df,var):
 
 # Outliers can be visualized using boxplot
 # using seaborn library we can plot the boxplot
-# fig, axes = plt.subplots(2,2)
-# fig.suptitle('Before removing Outliers')
-# sns.boxplot(data = df, x ='raisedhands', ax=axes[0,0])
-# sns.boxplot(data = df, x ='VisITedResources', ax=axes[0,1])
-# sns.boxplot(data = df, x ='AnnouncementsView', ax=axes[1,0])
-# sns.boxplot(data = df, x ='Discussion', ax=axes[1,1])
-# plt.show()
+fig, axes = plt.subplots(2,2)
+fig.suptitle('Before removing Outliers')
+sns.boxplot(data = df, x ='raisedhands', ax=axes[0,0])
+sns.boxplot(data = df, x ='VisITedResources', ax=axes[0,1])
+sns.boxplot(data = df, x ='AnnouncementsView', ax=axes[1,0])
+sns.boxplot(data = df, x ='Discussion', ax=axes[1,1])
+plt.show()
 
 
 #Display and remove outliers
 df = detectOutliers(df, 'raisedhands')
-# fig, axes = plt.subplots(2,2)
-# fig.suptitle('After removing Outliers')
-# sns.boxplot(data = df, x ='raisedhands', ax=axes[0,0])
-# sns.boxplot(data = df, x ='VisITedResources', ax=axes[0,1])
-# sns.boxplot(data = df, x ='AnnouncementsView', ax=axes[1,0])
-# sns.boxplot(data = df, x ='Discussion', ax=axes[1,1])
-# plt.show()
+fig, axes = plt.subplots(2,2)
+fig.suptitle('After removing Outliers')
+sns.boxplot(data = df, x ='raisedhands', ax=axes[0,0])
+sns.boxplot(data = df, x ='VisITedResources', ax=axes[0,1])
+sns.boxplot(data = df, x ='AnnouncementsView', ax=axes[1,0])
+sns.boxplot(data = df, x ='Discussion', ax=axes[1,1])
+plt.show()
 #---------------------------------------------------------------------------------------
 
 #Display and remove outliers
@@ -116,7 +116,7 @@ df['AnnouncementsView'] = yeojohnTr.fit_transform(df['AnnouncementsView'].values
 df['Discussion'] = yeojohnTr.fit_transform(df['Discussion'].values.reshape(-1, 1))
 
 print('---------------- Data Skew Values after Yeo Johnson Transformation ----------------------')
-# Calculate skewness after transformation
+# Calculate skewness after transformationi
 print('AnnouncementsView: ', df['AnnouncementsView'].skew())
 print('Discussion: ', df['Discussion'].skew())
 
