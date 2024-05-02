@@ -1,18 +1,11 @@
-import nltk
-import ssl
-import certifi
-
-# Set SSL certificate options
-ssl._create_default_https_context = ssl._create_unverified_context
-
-# # Specify NLTK data directory
-nltk.data.path.append("'/Users/shreyasgandhi/dsbda/to/nltk_data")
-
-# Download NLTK data if not already downloaded
-nltk.download("punkt", download_dir="'/Users/shreyasgandhi/dsbda/to/nltk_data")
-nltk.download("stopwords", download_dir="'/Users/shreyasgandhi/dsbda/to/nltk_data")
-nltk.download("wordnet", download_dir="'/Users/shreyasgandhi/dsbda/to/nltk_data")
-nltk.download("averaged_perceptron_tagger", download_dir="'/Users/shreyasgandhi/dsbda/to/nltk_data")
+import pandas as pd
+import nltk #natural language tool kit library widely used for NLP
+# applications
+import re # regular expression used for pattern matching
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
 
 # Now you can use NLTK without SSL certificate verification errors
 

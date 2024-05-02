@@ -103,8 +103,8 @@ fig.tight_layout()
 plt.show()
 
 
-removeoutliers(df , 'ptratio')
-removeoutliers(df , 'lstat')
+df = removeoutliers(df , 'ptratio')
+df = removeoutliers(df , 'lstat')
 print("After Removing Outliers")
 
 X = df[['ptratio','lstat']]
