@@ -60,3 +60,21 @@ print('\n-------------------------- Age -----------------------\n')
 print(df['Age'].groupby(df['Gender']).describe())
 print('\n-------------------------- Salary -----------------------\n')
 print(df['Salary'].groupby(df['Gender']).describe())
+
+
+df = pd.read_csv('Datasets/iris.csv')
+df = df.drop('Id', axis=1)
+
+df.columns = ('SL', 'SW', 'PL', 'PW', 'Species')
+print(df.head().T)
+# Display Statistical information
+print('Statistical information of Numerical Columns: \n',df.describe())
+print('Groupwise Statistical Summary....')
+print('\n-------------------------- Sepal Length -----------------------\n')
+print(df['SL'].groupby(df['Species']).describe())
+print('\n-------------------------- Sepal Width -----------------------\n')
+print(df['SW'].groupby(df['Species']).describe())
+print('\n-------------------------- Petal Length -----------------------\n')
+print(df['PL'].groupby(df['Species']).describe())
+print('\n-------------------------- Petal Width -----------------------\n')
+print(df['SW'].groupby(df['Species']).describe())
