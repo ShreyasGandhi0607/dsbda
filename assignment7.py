@@ -1,8 +1,21 @@
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('averaged_perceptron_tagger')
+import ssl
+import certifi
+
+# Set SSL certificate options
+ssl._create_default_https_context = ssl._create_unverified_context
+
+# # Specify NLTK data directory
+nltk.data.path.append("'/Users/shreyasgandhi/dsbda/to/nltk_data")
+
+# Download NLTK data if not already downloaded
+nltk.download("punkt", download_dir="'/Users/shreyasgandhi/dsbda/to/nltk_data")
+nltk.download("stopwords", download_dir="'/Users/shreyasgandhi/dsbda/to/nltk_data")
+nltk.download("wordnet", download_dir="'/Users/shreyasgandhi/dsbda/to/nltk_data")
+nltk.download("averaged_perceptron_tagger", download_dir="'/Users/shreyasgandhi/dsbda/to/nltk_data")
+
+# Now you can use NLTK without SSL certificate verification errors
+
 from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer, WordNetLemmatizer
@@ -17,14 +30,17 @@ sent = "Sachin is considered to be one of the greatest cricket players. Virat is
 # Sentence Tokenization
 print("----- SENTENCES -----")
 print(sent)
+print("\n\n")
 
 # Word Tokenization
 print("----- WORD TOKENIZATION -----")
 print(word_tokenize(sent))
+print("\n\n")
 
 # Sentence Tokenization
 print("----- SENT TOKENIZATION -----")
 print(sent_tokenize(sent))
+print("\n\n")
 
 # Stop Words Removal
 stop_words = set(stopwords.words('english'))
@@ -33,23 +49,26 @@ cleaned_token = [word for word in token if word.lower() not in stop_words]
 words = [cleaned_word.lower() for cleaned_word in cleaned_token if cleaned_word.isalpha()]
 print("----- WORDS -----")
 print(words)
-
+print("\n\n")
 # STEMMING
 stemmer = PorterStemmer()
 port_stemmer_output = [stemmer.stem(word) for word in words]
 print("----- STEMMING -----")
 print(port_stemmer_output)
+print("\n\n")
 
 # LEMMATIZATION
 lemmatizer = WordNetLemmatizer()
 lemmatizer_output = [lemmatizer.lemmatize(word) for word in words]
 print("----- LEMMATIZATION -----")
 print(lemmatizer_output)
+print("\n\n")
 
 # POS TAGGING
 tagged = pos_tag(cleaned_token)
 print("----- POS TAGGING -----")
 print(tagged)
+print("\n\n")
 
 # TF-IDF Vectorization
 docs = [
@@ -64,6 +83,7 @@ tfidfMat = vectorizer.fit_transform(docs)
 features_names = vectorizer.get_feature_names_out()
 print("----- FEATURE NAMES -----")
 print(features_names)
+print("\n\n")
 
 dense = tfidfMat.todense()
 denselist = dense.tolist()
@@ -73,9 +93,11 @@ docsList = ['Docs_1', 'Docs_2', 'Docs_3', 'Docs_4']
 skDocsIfIdfdf = pd.DataFrame(tfidfMat.todense(), index=docsList, columns=features_names)
 print("----- SK DOCS -----")
 print(skDocsIfIdfdf)
+print("\n\n")
 
 # Cosine Similarity Calculation
 csim = cosine_similarity(tfidfMat, tfidfMat)
 csimDf = pd.DataFrame(csim, index=docsList, columns=docsList)
 print("----- COSINE SIMILARITY -----")
 print(csimDf)
+print("\n\n")

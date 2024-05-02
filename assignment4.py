@@ -77,8 +77,8 @@ def buildmodel(X,y):
 
 
 # Heapmap 
-# sns.heatmap(df.corr(),annot=True)
-# plt.show()
+sns.heatmap(df.corr(),annot=True)
+plt.show()
     
 # we observed that lstat, ptratio and rm have high correlation with cost of flat (medv)
 # avoid variables which have more internal correlation
@@ -96,11 +96,11 @@ buildmodel(X,Y)
 
 
 # Checking model score after removing outliers
-# fig, axes = plt.subplots(1,2)
-# sns.boxplot(data = df, x ='ptratio', ax=axes[0])
-# sns.boxplot(data = df, x ='lstat', ax=axes[1])
-# fig.tight_layout()
-# plt.show()
+fig, axes = plt.subplots(1,2)
+sns.boxplot(data = df, x ='ptratio', ax=axes[0])
+sns.boxplot(data = df, x ='lstat', ax=axes[1])
+fig.tight_layout()
+plt.show()
 
 
 removeoutliers(df , 'ptratio')
